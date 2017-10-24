@@ -21,6 +21,6 @@ public class SulfurasItemEvaluator implements ItemEvaluator {
 
 	@Override
 	public Item evaluateItem() {
-    	return item;
+		return item;
 	}
 }

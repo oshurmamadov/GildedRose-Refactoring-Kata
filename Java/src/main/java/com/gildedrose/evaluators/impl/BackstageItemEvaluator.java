@@ -18,8 +18,8 @@ import main.java.com.gildedrose.utils.ItemUtils;
  */
 public class BackstageItemEvaluator implements ItemEvaluator {
 	private static final int CONCERT_DAY = 0;
-	private static final int TEN_DAYS_TILL_CONCERT = 10;
 	private static final int FIVE_DAYS_TILL_CONCERT = 5;
+	private static final int TEN_DAYS_TILL_CONCERT = 10;
 	
 	private Item item;
 	
@@ -31,7 +31,6 @@ public class BackstageItemEvaluator implements ItemEvaluator {
 	public Item evaluateItem() {
 		decreaseSellIn();
 		alterItemQuality();
-		
     	return ItemQualityValidator.validate(item);
 	}
 	

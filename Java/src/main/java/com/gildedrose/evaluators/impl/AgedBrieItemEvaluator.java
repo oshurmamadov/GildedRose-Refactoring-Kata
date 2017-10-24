@@ -25,7 +25,6 @@ public class AgedBrieItemEvaluator implements ItemEvaluator {
 	public Item evaluateItem() {
 		decreaseSellIn();
 		increaseQuality();
-		
     	return item;
 	}
 	

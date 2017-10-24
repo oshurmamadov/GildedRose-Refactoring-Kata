@@ -26,7 +26,6 @@ public class StandardItemEvaluator implements ItemEvaluator {
 	public Item evaluateItem() {
 		decreaseSellIn();
 		decreaseQuality();
-		
     	return ItemQualityValidator.validate(item);
 	}
 	
@@ -35,9 +34,10 @@ public class StandardItemEvaluator implements ItemEvaluator {
 	}
 	
 	private void decreaseQuality() {
-		if (item.sellIn < ItemUtils.SELL_IN_DAY)
+		if (item.sellIn < ItemUtils.SELL_IN_DAY) {
 			item.quality -= ItemUtils.ADJUST_QUALITY_BY_TWO;
-		else
+		} else {
 			item.quality--;
+		}
 	}
 }

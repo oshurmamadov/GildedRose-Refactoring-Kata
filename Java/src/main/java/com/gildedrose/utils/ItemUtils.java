@@ -1,7 +1,7 @@
 package main.java.com.gildedrose.utils;
 
 /**
- * Item Utils class
+ * Item util class
  * 
  * @author Parviz_Oshurmamadov
  *

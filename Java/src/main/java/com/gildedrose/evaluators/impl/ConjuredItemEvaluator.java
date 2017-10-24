@@ -34,6 +34,6 @@ public class ConjuredItemEvaluator implements ItemEvaluator {
 	}
 	
 	private void decreaseQuality() {
-		item.quality = item.quality - ItemUtils.ADJUST_QUALITY_BY_TWO;
+		item.quality -= ItemUtils.ADJUST_QUALITY_BY_TWO;
 	}
 }
