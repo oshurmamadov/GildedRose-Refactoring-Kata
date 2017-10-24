@@ -1,11 +1,8 @@
-package test.java.com.gildedrose;
+package com.gildedrose;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 
 import org.junit.Test;
-
-import main.java.com.gildedrose.GildedRose;
-import main.java.com.gildedrose.Item;
 
 public class GildedRoseTest {
 

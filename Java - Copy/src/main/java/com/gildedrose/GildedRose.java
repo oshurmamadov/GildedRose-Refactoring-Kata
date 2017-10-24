@@ -1,4 +1,4 @@
-package main.java.com.gildedrose;
+package gildedrose;
 
 public class GildedRose {
 	public Item[] items;
@@ -62,9 +62,9 @@ public class GildedRose {
     
     
     public void myUpdate() {
-    	ItemEvaluator evaluator;
+    	Evaluator evaluator;
     	for(Item item : items) {
-    		evaluator = new ItemEvaluator(item);
+    		evaluator = new Evaluator(item);
     		switch(item.name) {
 	    		case ItemTypes.AGED_BRIE :
 	    			item = evaluator.evaluateAgedBrieItem(item);
