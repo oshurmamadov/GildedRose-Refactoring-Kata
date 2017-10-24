@@ -1,10 +1,11 @@
 package main.java.com.gildedrose;
 
-import main.java.com.gildedrose.evaluators.AgedBrieItemEvaluator;
-import main.java.com.gildedrose.evaluators.BackstageItemEvaluator;
-import main.java.com.gildedrose.evaluators.ConjuredItemEvaluator;
-import main.java.com.gildedrose.evaluators.StandardItemEvaluator;
-import main.java.com.gildedrose.evaluators.SulfurasItemEvaluator;
+import main.java.com.gildedrose.evaluators.impl.AgedBrieItemEvaluator;
+import main.java.com.gildedrose.evaluators.impl.BackstageItemEvaluator;
+import main.java.com.gildedrose.evaluators.impl.ConjuredItemEvaluator;
+import main.java.com.gildedrose.evaluators.impl.StandardItemEvaluator;
+import main.java.com.gildedrose.evaluators.impl.SulfurasItemEvaluator;
+import main.java.com.gildedrose.utils.ItemTypes;
 
 public class GildedRose {
 	public Item[] items;
