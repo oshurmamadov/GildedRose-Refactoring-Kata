@@ -1,5 +1,11 @@
 package main.java.com.gildedrose;
 
+import main.java.com.gildedrose.evaluators.AgedBrieItemEvaluator;
+import main.java.com.gildedrose.evaluators.BackstageItemEvaluator;
+import main.java.com.gildedrose.evaluators.ConjuredItemEvaluator;
+import main.java.com.gildedrose.evaluators.StandardItemEvaluator;
+import main.java.com.gildedrose.evaluators.SulfurasItemEvaluator;
+
 public class GildedRose {
 	public Item[] items;
 
@@ -62,27 +68,24 @@ public class GildedRose {
     
     
     public void myUpdate() {
-    	ItemEvaluator evaluator;
-    	for(Item item : items) {
-    		evaluator = new ItemEvaluator(item);
-    		switch(item.name) {
+    	for(Item currentItem : items) {
+    		switch(currentItem.name) {
 	    		case ItemTypes.AGED_BRIE :
-	    			item = evaluator.evaluateAgedBrieItem(item);
+	    			currentItem = new AgedBrieItemEvaluator(currentItem).evaluateItem();
 	    			break;
 	    		case ItemTypes.SULFURAS :
-	    			item = evaluator.evaluateSulfurasItem(item);
+	    			currentItem = new SulfurasItemEvaluator(currentItem).evaluateItem();
 	    			break;
 	    		case ItemTypes.BACKSTAGE :
-	    			item = evaluator.evaluateBackstageItem(item);
+	    			currentItem = new BackstageItemEvaluator(currentItem).evaluateItem();
 	    			break;
 	    		case ItemTypes.CONJURED :
-	    			item = evaluator.evaluateConjuredItem(item);
+	    			currentItem = new ConjuredItemEvaluator(currentItem).evaluateItem();
 	    			break;
 	    		default :
-	    			item = evaluator.evaluateStandardItem();
+	    			currentItem = new StandardItemEvaluator(currentItem).evaluateItem();
 	    			break;
     		}
     	}
     }
-    	
 }
