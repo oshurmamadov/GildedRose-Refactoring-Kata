@@ -14,5 +14,5 @@ public interface EvaluatorFactory {
 	/*
 	 * Initialize evaluator
 	 */
-	public ItemEvaluator initEvaluator(Item item);
+	public ItemQualityEvaluator initEvaluator(Item item);
 }

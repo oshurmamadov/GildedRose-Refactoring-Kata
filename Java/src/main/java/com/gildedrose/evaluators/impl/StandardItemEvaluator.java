@@ -1,7 +1,7 @@
 package main.java.com.gildedrose.evaluators.impl;
 
 import main.java.com.gildedrose.Item;
-import main.java.com.gildedrose.evaluators.ItemEvaluator;
+import main.java.com.gildedrose.evaluators.ItemQualityEvaluator;
 import main.java.com.gildedrose.utils.ItemQualityValidator;
 import main.java.com.gildedrose.utils.ItemUtils;
 
@@ -14,7 +14,7 @@ import main.java.com.gildedrose.utils.ItemUtils;
  * @author Parviz_Oshurmamadov
  *
  */
-public class StandardItemEvaluator implements ItemEvaluator {
+public class StandardItemEvaluator implements ItemQualityEvaluator {
 	
 	private Item item;
 	

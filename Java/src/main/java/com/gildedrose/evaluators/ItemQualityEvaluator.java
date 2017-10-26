@@ -7,7 +7,7 @@ import main.java.com.gildedrose.Item;
  * @author Parviz_Oshurmamadov
  *
  */
-public interface ItemEvaluator {
+public interface ItemQualityEvaluator {
 
 	/*
 	 * Evaluate an Item

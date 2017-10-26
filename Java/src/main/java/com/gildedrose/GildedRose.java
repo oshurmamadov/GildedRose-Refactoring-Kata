@@ -1,6 +1,9 @@
 package main.java.com.gildedrose;
 
 import main.java.com.gildedrose.common.ItemTypes;
+import main.java.com.gildedrose.evaluators.EvaluatorFactory;
+import main.java.com.gildedrose.evaluators.EvaluatorFactoryImpl;
+import main.java.com.gildedrose.evaluators.ItemQualityEvaluator;
 import main.java.com.gildedrose.evaluators.impl.AgedBrieItemEvaluator;
 import main.java.com.gildedrose.evaluators.impl.BackstageItemEvaluator;
 import main.java.com.gildedrose.evaluators.impl.ConjuredItemEvaluator;
@@ -70,28 +73,15 @@ public class GildedRose {
     
     public void myUpdate() {
     	for(Item item : items) {
-    		item = delegateItemToEvaluator(item);
+    		item = evaluateItem(item);
     	}
     }
     
-    private Item delegateItemToEvaluator(Item currentItem) {
-    	switch(currentItem.name) {
-			case ItemTypes.AGED_BRIE :
-				currentItem = new AgedBrieItemEvaluator(currentItem).evaluateItem();
-				break;
-			case ItemTypes.SULFURAS :
-				currentItem = new SulfurasItemEvaluator(currentItem).evaluateItem();
-				break;
-			case ItemTypes.BACKSTAGE :
-				currentItem = new BackstageItemEvaluator(currentItem).evaluateItem();
-				break;
-			case ItemTypes.CONJURED :
-				currentItem = new ConjuredItemEvaluator(currentItem).evaluateItem();
-				break;
-			default :
-				currentItem = new StandardItemEvaluator(currentItem).evaluateItem();
-				break;
-    	}
-    	return currentItem;
+    private Item evaluateItem(Item currentItem) {
+    	return getItemEvaluator(currentItem).evaluateItem();
+    }
+    
+    private ItemQualityEvaluator getItemEvaluator(Item currentItem) {
+    	return new EvaluatorFactoryImpl().initEvaluator(currentItem);
     }
 }

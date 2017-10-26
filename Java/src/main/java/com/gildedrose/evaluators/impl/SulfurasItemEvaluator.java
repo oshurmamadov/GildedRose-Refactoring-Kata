@@ -1,7 +1,7 @@
 package main.java.com.gildedrose.evaluators.impl;
 
 import main.java.com.gildedrose.Item;
-import main.java.com.gildedrose.evaluators.ItemEvaluator;
+import main.java.com.gildedrose.evaluators.ItemQualityEvaluator;
 
 /**
  * Sulfuras, being a legendary item, never has to be sold or decreases in Quality
@@ -11,7 +11,7 @@ import main.java.com.gildedrose.evaluators.ItemEvaluator;
  * @author Parviz_Oshurmamadov
  *
  */
-public class SulfurasItemEvaluator implements ItemEvaluator {
+public class SulfurasItemEvaluator implements ItemQualityEvaluator {
 	
 	private Item item;
 	

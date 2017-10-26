@@ -1,7 +1,7 @@
 package main.java.com.gildedrose.evaluators.impl;
 
 import main.java.com.gildedrose.Item;
-import main.java.com.gildedrose.evaluators.ItemEvaluator;
+import main.java.com.gildedrose.evaluators.ItemQualityEvaluator;
 import main.java.com.gildedrose.utils.ItemQualityValidator;
 import main.java.com.gildedrose.utils.ItemUtils;
 
@@ -16,7 +16,7 @@ import main.java.com.gildedrose.utils.ItemUtils;
  * @author Parviz_Oshurmamadov
  *
  */
-public class BackstageItemEvaluator implements ItemEvaluator {
+public class BackstageItemEvaluator implements ItemQualityEvaluator {
 	private static final int CONCERT_DAY = 0;
 	private static final int FIVE_DAYS_TILL_CONCERT = 5;
 	private static final int TEN_DAYS_TILL_CONCERT = 10;
