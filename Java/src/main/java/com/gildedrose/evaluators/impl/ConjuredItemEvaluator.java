@@ -1,8 +1,8 @@
 package main.java.com.gildedrose.evaluators.impl;
 
 import main.java.com.gildedrose.Item;
-import main.java.com.gildedrose.ItemQualityValidator;
 import main.java.com.gildedrose.evaluators.ItemEvaluator;
+import main.java.com.gildedrose.utils.ItemQualityValidator;
 import main.java.com.gildedrose.utils.ItemUtils;
 
 /**
@@ -25,7 +25,6 @@ public class ConjuredItemEvaluator implements ItemEvaluator {
 	public Item evaluateItem() {
 		decreaseSellIn();
 		decreaseQuality();
-		
     	return ItemQualityValidator.validate(item);
 	}
 	

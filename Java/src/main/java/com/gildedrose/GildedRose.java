@@ -1,11 +1,11 @@
 package main.java.com.gildedrose;
 
+import main.java.com.gildedrose.common.ItemTypes;
 import main.java.com.gildedrose.evaluators.impl.AgedBrieItemEvaluator;
 import main.java.com.gildedrose.evaluators.impl.BackstageItemEvaluator;
 import main.java.com.gildedrose.evaluators.impl.ConjuredItemEvaluator;
 import main.java.com.gildedrose.evaluators.impl.StandardItemEvaluator;
 import main.java.com.gildedrose.evaluators.impl.SulfurasItemEvaluator;
-import main.java.com.gildedrose.utils.ItemTypes;
 
 public class GildedRose {
 	public Item[] items;
@@ -69,24 +69,29 @@ public class GildedRose {
     
     
     public void myUpdate() {
-    	for(Item currentItem : items) {
-    		switch(currentItem.name) {
-	    		case ItemTypes.AGED_BRIE :
-	    			currentItem = new AgedBrieItemEvaluator(currentItem).evaluateItem();
-	    			break;
-	    		case ItemTypes.SULFURAS :
-	    			currentItem = new SulfurasItemEvaluator(currentItem).evaluateItem();
-	    			break;
-	    		case ItemTypes.BACKSTAGE :
-	    			currentItem = new BackstageItemEvaluator(currentItem).evaluateItem();
-	    			break;
-	    		case ItemTypes.CONJURED :
-	    			currentItem = new ConjuredItemEvaluator(currentItem).evaluateItem();
-	    			break;
-	    		default :
-	    			currentItem = new StandardItemEvaluator(currentItem).evaluateItem();
-	    			break;
-    		}
+    	for(Item item : items) {
+    		item = delegateItemToEvaluator(item);
     	}
+    }
+    
+    private Item delegateItemToEvaluator(Item currentItem) {
+    	switch(currentItem.name) {
+			case ItemTypes.AGED_BRIE :
+				currentItem = new AgedBrieItemEvaluator(currentItem).evaluateItem();
+				break;
+			case ItemTypes.SULFURAS :
+				currentItem = new SulfurasItemEvaluator(currentItem).evaluateItem();
+				break;
+			case ItemTypes.BACKSTAGE :
+				currentItem = new BackstageItemEvaluator(currentItem).evaluateItem();
+				break;
+			case ItemTypes.CONJURED :
+				currentItem = new ConjuredItemEvaluator(currentItem).evaluateItem();
+				break;
+			default :
+				currentItem = new StandardItemEvaluator(currentItem).evaluateItem();
+				break;
+    	}
+    	return currentItem;
     }
 }

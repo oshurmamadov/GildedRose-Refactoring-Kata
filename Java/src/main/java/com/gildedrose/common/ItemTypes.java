@@ -1,4 +1,4 @@
-package main.java.com.gildedrose.utils;
+package main.java.com.gildedrose.common;
 
 public final class ItemTypes {
 	

@@ -1,6 +1,6 @@
-package main.java.com.gildedrose;
+package main.java.com.gildedrose.utils;
 
-import main.java.com.gildedrose.utils.ItemUtils;
+import main.java.com.gildedrose.Item;
 
 /**
  * This class validates if during increase or decrease processes quality is not more  
