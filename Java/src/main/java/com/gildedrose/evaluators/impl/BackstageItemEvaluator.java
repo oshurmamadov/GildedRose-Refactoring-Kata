@@ -1,8 +1,8 @@
 package main.java.com.gildedrose.evaluators.impl;
 
 import main.java.com.gildedrose.Item;
-import main.java.com.gildedrose.evaluators.ItemQualityEvaluator;
-import main.java.com.gildedrose.utils.ItemQualityValidator;
+import main.java.com.gildedrose.evaluators.ItemEvaluator;
+import main.java.com.gildedrose.utils.ItemQualityLevelValidator;
 import main.java.com.gildedrose.utils.ItemUtils;
 
 /**
@@ -16,7 +16,7 @@ import main.java.com.gildedrose.utils.ItemUtils;
  * @author Parviz_Oshurmamadov
  *
  */
-public class BackstageItemEvaluator implements ItemQualityEvaluator {
+public class BackstageItemEvaluator extends ItemEvaluator {
 	private static final int CONCERT_DAY = 0;
 	private static final int FIVE_DAYS_TILL_CONCERT = 5;
 	private static final int TEN_DAYS_TILL_CONCERT = 10;
@@ -24,6 +24,7 @@ public class BackstageItemEvaluator implements ItemQualityEvaluator {
 	private Item item;
 	
 	public BackstageItemEvaluator(Item item) {
+		super(item);
 		this.item = item;
 	}
 
@@ -31,11 +32,7 @@ public class BackstageItemEvaluator implements ItemQualityEvaluator {
 	public Item evaluateItem() {
 		decreaseSellIn();
 		alterItemQuality();
-    	return ItemQualityValidator.validate(item);
-	}
-	
-	private void decreaseSellIn() {
-		item.sellIn--;
+    	return ItemQualityLevelValidator.validateAndReturn(item);
 	}
 	
 	private void alterItemQuality() {

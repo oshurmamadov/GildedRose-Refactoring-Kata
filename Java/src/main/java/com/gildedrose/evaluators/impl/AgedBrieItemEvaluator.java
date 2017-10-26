@@ -1,7 +1,7 @@
 package main.java.com.gildedrose.evaluators.impl;
 
 import main.java.com.gildedrose.Item;
-import main.java.com.gildedrose.evaluators.ItemQualityEvaluator;
+import main.java.com.gildedrose.evaluators.ItemEvaluator;
 import main.java.com.gildedrose.utils.ItemUtils;
 
 /**
@@ -13,11 +13,12 @@ import main.java.com.gildedrose.utils.ItemUtils;
  * @author Parviz_Oshurmamadov
  *
  */
-public class AgedBrieItemEvaluator implements ItemQualityEvaluator {
+public class AgedBrieItemEvaluator extends ItemEvaluator {
 	
 	private Item item;
 	
 	public AgedBrieItemEvaluator(Item item) {
+		super(item);
 		this.item = item;
 	}
 
@@ -26,10 +27,6 @@ public class AgedBrieItemEvaluator implements ItemQualityEvaluator {
 		decreaseSellIn();
 		increaseQuality();
     	return item;
-	}
-	
-	private void decreaseSellIn() {
-		item.sellIn--;
 	}
 		
 	private void increaseQuality() {

@@ -3,7 +3,7 @@ package main.java.com.gildedrose;
 import main.java.com.gildedrose.common.ItemTypes;
 import main.java.com.gildedrose.evaluators.EvaluatorFactory;
 import main.java.com.gildedrose.evaluators.EvaluatorFactoryImpl;
-import main.java.com.gildedrose.evaluators.ItemQualityEvaluator;
+import main.java.com.gildedrose.evaluators.ItemEvaluator;
 import main.java.com.gildedrose.evaluators.impl.AgedBrieItemEvaluator;
 import main.java.com.gildedrose.evaluators.impl.BackstageItemEvaluator;
 import main.java.com.gildedrose.evaluators.impl.ConjuredItemEvaluator;
@@ -81,7 +81,7 @@ public class GildedRose {
     	return getItemEvaluator(currentItem).evaluateItem();
     }
     
-    private ItemQualityEvaluator getItemEvaluator(Item currentItem) {
+    private ItemEvaluator getItemEvaluator(Item currentItem) {
     	return new EvaluatorFactoryImpl().initEvaluator(currentItem);
     }
 }

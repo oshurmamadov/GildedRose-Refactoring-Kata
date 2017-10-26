@@ -17,7 +17,7 @@ import main.java.com.gildedrose.evaluators.impl.SulfurasItemEvaluator;
 public class EvaluatorFactoryImpl implements EvaluatorFactory{
 
 	@Override
-	public ItemQualityEvaluator initEvaluator(Item itemToEvaluate) {
+	public ItemEvaluator initEvaluator(Item itemToEvaluate) {
 		switch(itemToEvaluate.name) {
 			case ItemTypes.AGED_BRIE :
 				return new AgedBrieItemEvaluator(itemToEvaluate);
@@ -29,7 +29,6 @@ public class EvaluatorFactoryImpl implements EvaluatorFactory{
 				return new ConjuredItemEvaluator(itemToEvaluate);
 			default :
 				return new StandardItemEvaluator(itemToEvaluate);
-			
 		}
 	}
 }
