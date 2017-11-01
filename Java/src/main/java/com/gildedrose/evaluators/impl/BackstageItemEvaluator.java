@@ -36,14 +36,25 @@ public class BackstageItemEvaluator extends ItemEvaluator {
 	}
 	
 	private void alterItemQuality() {
-		if (item.sellIn <= TEN_DAYS_TILL_CONCERT && item.sellIn > FIVE_DAYS_TILL_CONCERT) {
+		if (isThereAreTenDaysTillConcert()) {
 			item.quality += ItemUtils.ADJUST_QUALITY_BY_TWO;
-		} else if(item.sellIn <= FIVE_DAYS_TILL_CONCERT && item.sellIn >= CONCERT_DAY){
+		} else if(isThereAreFiveDaysTillConcert()){
 			item.quality += ItemUtils.ADJUST_QUALITY_BY_THREE;
-		} else if(item.sellIn < CONCERT_DAY) {
+		} else if(isConcertFinished()) {
 			item.quality = ItemUtils.ITEM_MIN_QUALITY;
 		} else {
 			item.quality++;
 		}
+	}
+	
+	private boolean isThereAreTenDaysTillConcert() {
+		return item.sellIn <= TEN_DAYS_TILL_CONCERT && item.sellIn > FIVE_DAYS_TILL_CONCERT;
+	}
+	
+	private boolean isThereAreFiveDaysTillConcert() {
+		return item.sellIn <= FIVE_DAYS_TILL_CONCERT && item.sellIn >= CONCERT_DAY;
+	}
+	private boolean isConcertFinished() {
+		return item.sellIn < CONCERT_DAY;
 	}
 }
