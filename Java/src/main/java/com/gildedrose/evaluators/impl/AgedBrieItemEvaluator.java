@@ -30,8 +30,12 @@ public class AgedBrieItemEvaluator extends ItemEvaluator {
 	}
 		
 	private void increaseQuality() {
-		if (item.quality < ItemUtils.ITEM_MAX_QUALITY) {
+		if (isQualityLessThanMax()) {
 			item.quality++;
 		}
+	}
+	
+	private boolean isQualityLessThanMax() {
+		return item.quality < ItemUtils.ITEM_MAX_QUALITY;
 	}
 }

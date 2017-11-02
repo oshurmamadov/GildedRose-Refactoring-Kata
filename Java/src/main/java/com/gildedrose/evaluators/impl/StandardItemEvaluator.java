@@ -31,10 +31,14 @@ public class StandardItemEvaluator extends ItemEvaluator {
 	}
 	
 	private void decreaseQuality() {
-		if (item.sellIn < ItemUtils.SELL_IN_DAY) {
+		if (isSellByDateHasPassed()) {
 			item.quality -= ItemUtils.ADJUST_QUALITY_BY_TWO;
 		} else {
 			item.quality--;
 		}
+	}
+	
+	private boolean isSellByDateHasPassed() {
+		return item.sellIn < ItemUtils.SELL_IN_DAY;
 	}
 }

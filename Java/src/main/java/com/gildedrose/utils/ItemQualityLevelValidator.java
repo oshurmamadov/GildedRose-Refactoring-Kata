@@ -27,12 +27,18 @@ public class ItemQualityLevelValidator {
 	}
 	
 	private void validateAgainstMaximum() {
-		item.quality = item.quality > ItemUtils.ITEM_MAX_QUALITY ? 
-				ItemUtils.ITEM_MAX_QUALITY : item.quality;
+		item.quality = isQualityMoreThanMax() ? ItemUtils.ITEM_MAX_QUALITY : item.quality;
 	}
 	
 	private void validateAgainstMinimum() {
-		item.quality = item.quality < ItemUtils.ITEM_MIN_QUALITY ?
-				ItemUtils.ITEM_MIN_QUALITY : item.quality;
+		item.quality = isQualityLessThanMin() ? ItemUtils.ITEM_MIN_QUALITY : item.quality;
+	}
+	
+	private boolean isQualityMoreThanMax() {
+		return item.quality > ItemUtils.ITEM_MAX_QUALITY;
+	}
+	
+	private boolean isQualityLessThanMin() {
+		return item.quality < ItemUtils.ITEM_MIN_QUALITY;
 	}
 }
